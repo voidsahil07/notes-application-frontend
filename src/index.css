@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS variables for light/dark (optional, used by App wrapper) */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #1f2937;
+  --card-bg: #f9fafb;
+  --card-border: #e5e7eb;
+  --input-bg: #ffffff;
+  --input-text: #111827;
+}
+
+/* dark mode variables (when html.dark class is present) */
+html.dark {
+  --bg-color: #0b1220;
+  --text-color: #e6edf3;
+  --card-bg: #0f1724;
+  --card-border: #1f2937;
+  --input-bg: #0b1220;
+  --input-text: #e6edf3;
+}
+
+/* global app-level styles */
+html, body {
+  height: 100%;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* prevent horizontal overflow */
+html, body {
+  overflow-x: hidden;
+}
+
+/* note card specific */
+.note-card {
+  background-color: var(--card-bg);
+  border-color: var(--card-border);
+}
+
+/* wrap long text and preserve whitespace (for content with newlines) */
+.note-card p,
+.note-card h3 {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* responsive tweaks for small devices */
+@media (max-width: 640px) {
+  .note-card {
+    max-width: 100%;
+  }
+}
+
+/* small shadow/hover improvements */
+.note-card:hover {
+  transform: translateY(-3px);
+  transition: transform 0.15s ease;
+}
