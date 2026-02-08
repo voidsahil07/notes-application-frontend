@@ -53,7 +53,7 @@ export default function App() {
     if (user) {
       fetchNotes();
       
-      const socket = socketIOClient("http://localhost:5000");
+      const socket = socketIOClient(import.meta.env.VITE_API_URL);
       socket.on("refreshNotes", fetchNotes);
       socket.on("reminderDue", (note) => {
         alert(`Reminder: ${note.title}`);
